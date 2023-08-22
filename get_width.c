@@ -14,7 +14,7 @@ int get_width(const char *format, int *x, va_list a_list)
 		int current_index;
 		int width = 0;
 
-		for (current_i = *x + 1; format[current_index] != '\0';
+		for (current_index = *x + 1; format[current_index] != '\0';
 			current_index++)
 		{
 
