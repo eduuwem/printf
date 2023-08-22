@@ -197,11 +197,11 @@ int print_reverse(va_list types, char buffer[], int flags, int width,
 int print_rot13string(va_list types, char buffer[], int flags, int width,
 		int precision, int size) {
 
-	char x;
+	char b;
 
 	char *str;
 
-	unsigned int i, j;
+	unsigned int x, k;
 
 	int count = 0;
 
@@ -225,15 +225,15 @@ int print_rot13string(va_list types, char buffer[], int flags, int width,
 
 		str = "(AHYY)";
 
-	for (i = 0; str[i]; i++)
+	for (x = 0; str[x]; x++)
 	{
-		for (j = 0; in[j]; j++)
+		for (k = 0; in[k]; k++)
 		{
-			if (in[j] == str[i])
+			if (in[k] == str[x])
 			{
-				x = out[j];
+				b = out[k];
 
-				write(1, &x, 1);
+				write(1, &b, 1);
 
 				count++;
 
@@ -241,11 +241,11 @@ int print_rot13string(va_list types, char buffer[], int flags, int width,
 			}
 		}
 
-		if (!in[j])
+		if (!in[k])
 		{
-			x = str[i];
+			b = str[x];
 
-			write(1, &x, 1);
+			write(1, &b, 1);
 
 			count++;
 		}
