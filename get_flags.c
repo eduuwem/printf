@@ -2,7 +2,7 @@
 
 /**
  * get_flags - turns on flags if _printf finds a flag
- *             modifier in the format string
+ *             modifier in the formatting string
  * @format:The formatted strings  to print the arguments
  * @x: inputs a parameter.
  * Return: Flags

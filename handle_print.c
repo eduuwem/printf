@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * handle_print - Prints the correspondent values of argument
+ * handle_print - Prints the correspondents values of argument
  * with differrent format specifier
  * @fmt: Format string that has format specifier.
  * @a_list: va_list of arguments to be printed.
