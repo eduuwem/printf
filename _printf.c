@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int flags, width, precision, size, buffer_index = 0;
 	va_list a_list;
 	char buffer[BUFF_SIZE];
+	int k, length = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -37,19 +38,52 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &x, a_list);
 			size = get_size(format, &x);
 			++x;
+
+			if (format[x] == 'r')
+			{
+				char *str = va_arg(a_list, char *);
+
+				if (str == NULL)
+					str = "(null)";
+
+				while (str[length] != '\0')
+
+				{
+					length++;
+				}
+
+
+				for (k = length - 1; k >= 0; k--)
+				{
+					buffer[buffer_index++] = str[k];
+
+					if (buffer_index == BUFF_SIZE)
+
+						print_buffer(buffer, &buffer_index);
+				}
+
+				printed_chars += length;
+			}
+
+			else
+			{
+
 			printed = handle_print(format, &x, a_list, buffer,
-				flags, width, precision, size);
-				if (printed == -1)
+					flags, width, precision, size);
+
+			if (printed == -1)
+
 				return (-1);
-				printed_chars += printed;
+
+			printed_chars += printed;
+			}
 		}
 	}
-
 	print_buffer(buffer, &buffer_index);
-
 	va_end(a_list);
 	return (printed_chars);
 }
+
 
 /**
  * print_buffer - Prints the functions of the buffer contents
