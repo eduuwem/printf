@@ -17,8 +17,6 @@ int handle_print(const char *fmt, int *index, va_list a_list, char buffer[],
 {
 		int x, unknow_len = 0, printed_chars = -1;
 
-		/* fmt_t holds a format character with printing function*/
-		/* this printing function prints the argument based on the format specifier*/
 		fmt_t fmt_types[] = {
 			{'c', print_char}, {'s', print_string}, {'%', print_percent},
 			{'i', print_int}, {'d', print_int}, {'b', print_binary},

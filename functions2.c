@@ -23,7 +23,8 @@ int print_pointer(va_list types, char buffer[], int flags, int width,
 
 	char extra_c = 0, padd = ' ';
 
-	int index = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
+	int index = BUFF_SIZE - 2, length = 2, padd_start = 1;
+	/* length=2, for '0x' */
 
 	unsigned long num_addrs;
 
