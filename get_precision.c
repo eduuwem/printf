@@ -39,10 +39,17 @@ int get_precision(const char *format, int *x, va_list a_list)
 		{
 			current_index++;
 			precision = va_arg(a_list, int);
+
+			if (precision < 0)
+			{
+				precision = 0;
+			}
+
 	/* va_args retrieve an int value from argument list*/
 			break;
 		}
-else
+
+		else
 			break;
 	}
 

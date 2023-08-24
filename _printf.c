@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	va_list a_list;
 	char buffer[BUFF_SIZE];
 	int k, length = 0;
+	int str_len = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -63,6 +64,25 @@ int _printf(const char *format, ...)
 				}
 
 				printed_chars += length;
+			}
+
+			if (format[x] == 's')
+			{
+				char *str = va_arg(a_list, char *);
+
+				if (str == NULL)
+					str = "(null)";
+
+				while (str[str_len] != '\0' && str_len < precision)
+				{
+					buffer[buffer_index++] = str[str_len++];
+
+					if (buffer_index == BUFF_SIZE)
+						print_buffer(buffer, &buffer_index);
+
+				}
+
+				printed_chars += str_len;
 			}
 
 			else

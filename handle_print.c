@@ -24,7 +24,9 @@ int handle_print(const char *fmt, int *index, va_list a_list, char buffer[],
 			{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
 			{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 		};
+
 		for (x = 0; fmt_types[x].fmt != '\0'; x++)
+
 			if (fmt[*index] == fmt_types[x].fmt)
 				return (fmt_types[x].fn(a_list, buffer, flags, width, precision, size));
 
